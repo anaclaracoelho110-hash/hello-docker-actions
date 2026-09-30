@@ -1,0 +1,17 @@
+name: CI Docker
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout do código
+      uses: actions/checkout@v3
+
+    - name: Testar Build da Imagem Docker
+      run: |
+        docker build -t test-image .
